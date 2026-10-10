@@ -1,0 +1,103 @@
+:root {
+  --bg: #f4f8fb;
+  --fg: #12202b;
+  --muted: #5d6f7d;
+  --accent: #1b7fc4;
+  --accent-fg: #ffffff;
+  --pay: #1f9d55;
+  --disabled-bg: #d5dde3;
+  --disabled-fg: #8796a3;
+  --error: #b3261e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e171e;
+    --fg: #e6eef4;
+    --muted: #8da0af;
+    --accent: #3a9ae0;
+    --accent-fg: #06121b;
+    --pay: #3cc47a;
+    --disabled-bg: #25323c;
+    --disabled-fg: #5c6e7c;
+    --error: #ff8a80;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+main {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+h1 { margin: 0; font-size: 1.1rem; font-weight: 600; color: var(--muted); }
+
+button {
+  font: inherit;
+  font-weight: 700;
+  border: 0;
+  border-radius: 1rem;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+button:disabled {
+  background: var(--disabled-bg) !important;
+  color: var(--disabled-fg) !important;
+  cursor: not-allowed;
+}
+
+.fills { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.fill {
+  min-height: 7rem;
+  font-size: 2rem;
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+.total { text-align: center; padding: 1rem 0; }
+.oz { font-size: 4rem; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+.owed { margin-top: 0.5rem; font-size: 1.25rem; font-weight: 600; color: var(--pay); }
+
+.pay {
+  min-height: 5rem;
+  font-size: 1.75rem;
+  background: var(--pay);
+  color: var(--accent-fg);
+}
+
+.undo {
+  min-height: 3rem;
+  font-size: 1rem;
+  background: transparent;
+  color: var(--muted);
+  border: 2px solid var(--disabled-bg);
+}
+
+.status { text-align: center; color: var(--muted); }
+.error { color: var(--error); text-align: center; margin: 0; }
+
+form { display: flex; flex-direction: column; gap: 0.75rem; }
+form .fill { min-height: 3.5rem; font-size: 1.25rem; }
+label { color: var(--muted); }
+input {
+  font: inherit;
+  padding: 0.9rem;
+  border-radius: 0.75rem;
+  border: 2px solid var(--disabled-bg);
+  background: transparent;
+  color: var(--fg);
+}

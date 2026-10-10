@@ -1,0 +1,6 @@
+/target
+/node_modules
+/worker/build
+/worker/target
+/.wrangler
+.dev.vars
